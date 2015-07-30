@@ -1,0 +1,5 @@
+---
+name: bg_worker
+templates:
+  ctl.erb: bin/ctl
+packages:
