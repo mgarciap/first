@@ -1,0 +1,15 @@
+---
+name: ruby_2.2.2
+
+dependencies:
+
+    - libyaml_0.1.6
+
+files:
+    - ruby_2.2.2/ruby-2.2.2.tar.gz # http://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.2.tar.gz
+
+    - ruby_2.2.2/rubygems-2.4.8.tgz    # http://production.cf.rubygems.org/rubygems/rubygems-2.4.8.tgz
+
+    - ruby_2.2.2/bundler-1.2.1.gem      # https://rubygems.org/downloads/bundler-1.2.1.gem
+
+

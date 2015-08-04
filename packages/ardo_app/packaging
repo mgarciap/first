@@ -1,0 +1,12 @@
+# abort script on any command that exits with a non zero value
+
+set -e -x
+
+cp -a ardo_app/* ${BOSH_INSTALL_TARGET}
+
+cd ${BOSH_INSTALL_TARGET}
+
+/var/vcap/packages/ruby_2.2.2/bin/bundle install \
+  --local \
+  --deployment \
+  --without development test

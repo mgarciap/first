@@ -1,0 +1,12 @@
+---
+name: ardo_app
+
+dependencies:
+
+    - ruby_2.2.2
+
+files:
+
+    - ardo_web/**/*
+
+
