@@ -1,14 +1,16 @@
 ---
-name: ardo_app
+name: ardo_blobstore
 director_uuid: 737bd8ee-f4f9-4aec-9b82-80f3d0be26f1
 
 releases: 
-    - {name: ardo_app, version: latest}
+    - {name: ardo_blobstore, version: latest}
 
 networks:
     - name: the-network
-    - type: dynamic 
-    - dns: [8.8.8.8]
+    - type: vip 
+      subnets:
+      - name: private
+        range: 100.64.0.0/14
 
 resource_pools:
 - name: ardo-servers
@@ -35,7 +37,7 @@ jobs:
   - name: ardo_app
     instances: 1
     templates:
-    - {name: ardo-server, release: revisa esto a ver que ondas}
+    - {name: ardo-server, release: ardo_blobstore}
     persistent_disk: 10_240
     resource_pool: ardo-servers
     networks:
