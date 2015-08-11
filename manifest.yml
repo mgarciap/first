@@ -1,0 +1,42 @@
+---
+name: ardo_app
+director_uuid: 737bd8ee-f4f9-4aec-9b82-80f3d0be26f1
+
+releases: 
+    - {name: ardo_app, version: latest}
+
+networks:
+    - name: the-network
+    - type: dynamic 
+    - dns: [8.8.8.8]
+
+resource_pools:
+- name: ardo-servers
+  network: the-network
+  stemcell:
+    url: https://bosh.io/d/stemcells/bosh-aws-xen-ubuntu-trusty-go_agent?v=2950
+    sha1: 6489bff150d1ecbd12fda30267896f041dd279f0
+
+disk_pools:
+- name: default
+  disk_size: 2
+
+compilation:
+  workers: 2
+  network: the-network
+
+update:
+  canaries: 1
+  max_in_flight: 10
+  canary_watch_time: 1000-30000
+  update_watch_time: 1000-30000
+
+jobs:
+  - name: ardo_app
+    instances: 1
+    templates:
+    - {name: ardo-server, release: revisa esto a ver que ondas}
+    persistent_disk: 10_240
+    resource_pool: ardo-servers
+    networks:
+    - name: the-network
