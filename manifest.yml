@@ -6,11 +6,11 @@ releases:
     - {name: ardo_blobstore, version: latest}
 
 networks:
-    - name: the-network
-    - type: vip 
-      subnets:
-      - name: private
-        range: 100.64.0.0/14
+- name: the-network
+  subnets:
+  - range: 100.64.0.0/14
+    cloud_properties:
+      name: random
 
 resource_pools:
 - name: ardo-servers
